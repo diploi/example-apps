@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: payments-api
+  name: guestbook
 spec:
-  replicas: 3
+  replicas: 2
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: payments-api
+      app: guestbook
   template:
     metadata:
       labels:
-        app: payments-api
+        app: guestbook
     spec:
       containers:
       - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
-        name: payments-api
+        name: guestbook
         ports:
         - containerPort: 80
